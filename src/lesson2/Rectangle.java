@@ -4,9 +4,9 @@ package lesson2;
  * Рализация интерфейса для объета типа "Прямоугольник"
  */
 public class Rectangle implements Shape {
-    private static String name = "Прямоугольник";
-    private int shortSideLength;
-    private int longSideLength;
+    private static final String name = "Прямоугольник";
+    private final int shortSideLength;
+    private final int longSideLength;
 
     /**
      * Создаем объект

@@ -1,12 +1,11 @@
 package lesson2;
 
 public interface Shape {
-    public static String name = "Shape";
 
     /**
-     * Возвращает длину периметра фигуры
+     * Вычисляет и возвращает размер периметра фигуры
      *
-     * @return длина периметра
+     * @return размер периметра
      */
     int getPerimeterLength();
 

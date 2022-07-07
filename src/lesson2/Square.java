@@ -1,8 +1,8 @@
 package lesson2;
 
 public class Square implements Shape {
-    private int sideSize;
-    private static String name = "Квадрат";
+    private final int sideSize;
+    private static final String name = "Квадрат";
 
     /**
      * Объект типа квадрат

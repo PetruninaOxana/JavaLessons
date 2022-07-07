@@ -9,11 +9,11 @@ public class Main {
                 new Square(5)
         };
 
-        for (int i=0; i<shapes.length; i++) {
+        for (Shape shape : shapes) {
             System.out.println();
-            System.out.println("Имя фигуры: "+shapes[i].getType());
-            System.out.println("Площадь фигуры: "+shapes[i].getAreaSize());
-            System.out.println("Периметр фигуры: "+shapes[i].getPerimeterLength());
+            System.out.println("Имя фигуры: "+shape.getType());
+            System.out.println("Площадь фигуры: "+shape.getAreaSize());
+            System.out.println("Периметр фигуры: "+shape.getPerimeterLength());
         }
     }
 }

@@ -22,4 +22,10 @@ public interface Shape {
      * @return имя фигуры
      */
     String getType();
+
+    /**
+     * Описание фигуры
+     * @return описание фигуры
+     */
+    String getComment();
 }

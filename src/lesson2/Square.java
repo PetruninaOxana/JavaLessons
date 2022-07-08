@@ -3,6 +3,7 @@ package lesson2;
 public class Square implements Shape {
     private final int sideSize;
     private static final String name = "Квадрат";
+    private final String comment;
 
     /**
      * Объект типа квадрат
@@ -10,6 +11,7 @@ public class Square implements Shape {
      */
     public Square(int sideSize) {
         this.sideSize = sideSize;
+        comment = "Размер стороны T = "+sideSize;
     }
 
     @Override
@@ -25,5 +27,10 @@ public class Square implements Shape {
     @Override
     public String getType() {
         return name;
+    }
+
+    @Override
+    public String getComment() {
+        return comment;
     }
 }

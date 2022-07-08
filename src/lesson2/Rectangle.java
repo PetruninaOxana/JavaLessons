@@ -3,9 +3,7 @@ package lesson2;
 /**
  * Рализация интерфейса для объета типа "Прямоугольник"
  */
-public class Rectangle implements Shape {
-    private static final Poligon shape = Poligon.RECTANGLE;
-    private final String comment;
+public class Rectangle extends AbstractrShape {
     private final int shortSideLength;
     private final int longSideLength;
 
@@ -31,13 +29,4 @@ public class Rectangle implements Shape {
         return shortSideLength * longSideLength;
     }
 
-    @Override
-    public String getType() {
-        return shape.getType();
-    }
-
-    @Override
-    public String getComment() {
-        return comment;
-    }
 }

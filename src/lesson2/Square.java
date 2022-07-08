@@ -1,9 +1,7 @@
 package lesson2;
 
-public class Square implements Shape {
+public class Square extends AbstractrShape {
     private final int sideSize;
-    private static final Poligon shape = Poligon.SQUARE;
-    private final String comment;
 
     /**
      * Объект типа квадрат
@@ -22,15 +20,5 @@ public class Square implements Shape {
     @Override
     public int getAreaSize() {
         return sideSize*sideSize;
-    }
-
-    @Override
-    public String getType() {
-        return shape.getType();
-    }
-
-    @Override
-    public String getComment() {
-        return comment;
     }
 }

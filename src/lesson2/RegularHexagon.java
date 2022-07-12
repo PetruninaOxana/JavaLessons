@@ -5,7 +5,7 @@ package lesson2;
  */
 public class RegularHexagon implements Shape {
     private final int sideSize;
-    private static final String name = "Правильный шестиугольник";
+    private static final Poligon shape = Poligon.REGULARGEXAGON;
     private final String comment;
     private int areaSize = -1;
     /**
@@ -37,7 +37,7 @@ public class RegularHexagon implements Shape {
 
     @Override
     public String getType() {
-        return name;
+        return shape.getType();
     }
 
     @Override

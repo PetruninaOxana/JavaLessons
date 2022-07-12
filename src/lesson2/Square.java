@@ -2,7 +2,7 @@ package lesson2;
 
 public class Square implements Shape {
     private final int sideSize;
-    private static final String name = " вадрат";
+    private static final Poligon shape = Poligon.SQUARE;
     private final String comment;
 
     /**
@@ -26,7 +26,7 @@ public class Square implements Shape {
 
     @Override
     public String getType() {
-        return name;
+        return shape.getType();
     }
 
     @Override

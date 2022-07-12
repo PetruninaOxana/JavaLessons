@@ -4,7 +4,7 @@ package lesson2;
  * Рализация интерфейса для объета типа "Прямоугольник"
  */
 public class Rectangle implements Shape {
-    private static final String name = "Прямоугольник";
+    private static final Poligon shape = Poligon.RECTANGLE;
     private final String comment;
     private final int shortSideLength;
     private final int longSideLength;
@@ -33,7 +33,7 @@ public class Rectangle implements Shape {
 
     @Override
     public String getType() {
-        return name;
+        return shape.getType();
     }
 
     @Override

@@ -1,7 +1,11 @@
 package lesson2;
 
+/**
+ * Рализация класса для объекта типа "Квадрат"
+ */
 public class Square extends AbstractrShape {
     private final int sideSize;
+   // private final String comment;
 
     /**
      * Объект типа квадрат
@@ -9,6 +13,7 @@ public class Square extends AbstractrShape {
      */
     public Square(int sideSize) {
         this.sideSize = sideSize;
+        shape = Poligon.SQUARE;
         comment = "Размер стороны T = "+sideSize;
     }
 

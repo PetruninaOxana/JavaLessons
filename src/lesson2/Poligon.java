@@ -1,5 +1,10 @@
 package lesson2;
 
+/**
+ * Enum класс для определения типов объектов Shape
+ * @TODO вынести литералы в ResourceBundle
+ */
+
 public enum Poligon {
     SQUARE,
     RECTANGLE,
@@ -11,7 +16,7 @@ public enum Poligon {
             case SQUARE: return "Квадрат";
             case REGULARGEXAGON: return "Правильный шестиугольник";
             default:
-                throw new IllegalStateException("Unexpected value: " + this);
+                throw new IllegalStateException("Неизвестный тип фигуры: " + this);
         }
     }
 }

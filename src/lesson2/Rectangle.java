@@ -1,9 +1,11 @@
 package lesson2;
 
 /**
- * Рализация интерфейса для объета типа "Прямоугольник"
+ * Рализация класса для объекта типа "Прямоугольник"
  */
 public class Rectangle extends AbstractrShape {
+    //private static final Poligon shape = Poligon.RECTANGLE;
+   // private final String comment;
     private final int shortSideLength;
     private final int longSideLength;
 
@@ -16,6 +18,7 @@ public class Rectangle extends AbstractrShape {
     public Rectangle(int shortSideLength, int longSideLength) {
         this.shortSideLength = shortSideLength;
         this.longSideLength = longSideLength;
+        shape = Poligon.RECTANGLE;
         comment = "Короткая сторона Tmin = " + this.shortSideLength + ", длинная сторона Tmax = " + longSideLength;
     }
 
@@ -28,5 +31,4 @@ public class Rectangle extends AbstractrShape {
     public int getAreaSize() {
         return shortSideLength * longSideLength;
     }
-
 }

@@ -1,5 +1,8 @@
 package lesson2;
 
+/**
+ * Enum класс для типов объектов
+ */
 public interface Shape {
 
     /**

@@ -1,7 +1,10 @@
 package lesson2;
 
+/**
+ * Абстрактный класс  интерфейса Shape
+ */
 public abstract class AbstractrShape implements Shape {
-    protected String name;
+    protected Poligon shape;
     protected String comment;
 
     @Override
@@ -12,7 +15,7 @@ public abstract class AbstractrShape implements Shape {
 
     @Override
     public String getType() {
-        return name;
+        return shape.getType();
     }
 
     @Override

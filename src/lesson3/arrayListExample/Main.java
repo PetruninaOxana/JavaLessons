@@ -1,6 +1,7 @@
 package lesson3.arrayListExample;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Работа с ArrayList:
@@ -12,16 +13,19 @@ public class Main {
     public static void main(String[] args) {
         Processor pr = new Processor();
         //Создаем тестовый набор
-        pr.addBox(new Box(400, 20, 20, 20));
-        pr.addBox(new Box(200, 10, 40, 12));
-        pr.addBox(new Box(600, 20, 20, 40));
-        pr.addBox(new Box(100, 30, 10, 20));
-        pr.addBox(new Box(700, 70, 70, 20));
-        pr.addBox(new Box(300, 70, 30, 20));
-
+        for (Box box1 : Arrays.asList(new Box(400, 20, 20, 20),
+                new Box(200, 10, 40, 12),
+                new Box(600, 20, 20, 40),
+                new Box(100, 30, 10, 20),
+                new Box(700, 70, 70, 20),
+                new Box(300, 70, 30, 20))) {
+            pr.addBox(box1);
+        }
+        // Обрабатываем очередь
         pr.process();
+
         ArrayList<Box> boxArray = pr.getBoxArray();
-        System.out.println("Список коробок до 300 грамм (включительно");
+        System.out.println("Список коробок до 300 грамм (включительно)");
         boxArray.forEach(box -> System.out.println("Box - Вес: "+box.getWeight()+" длина:"+box.getLength()+" ширина:" + box.getWidth() + " глубина: " + box.getHeight()));
         System.out.println("Список коробок c весом более 300 грамм");
         boxArray = pr.getHeavyBoxArray();

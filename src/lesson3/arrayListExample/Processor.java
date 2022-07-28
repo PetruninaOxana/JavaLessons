@@ -28,10 +28,8 @@ public class Processor {
         return heavyBoxArray;
     }
 
-    /**
+    /*
      * Провереям весь массив boxArray на предмет наличия коробок легче 300 грамм
-     *
-     */
     public void process() {
 
         /*
@@ -43,7 +41,7 @@ public class Processor {
         }
         https://stackoverflow.com/questions/223918/iterating-through-a-collection-avoiding-concurrentmodificationexception-when-re
         https://stackoverflow.com/questions/1196586/calling-remove-in-foreach-loop-in-java
-         */
+
         for (Iterator<Box> iterator = boxArray.iterator(); iterator.hasNext();) {
             Box box = iterator.next();
             if (box.getWeight() > 300) {
@@ -53,5 +51,26 @@ public class Processor {
                 iterator.remove();
             }
         }
+    }
+   */
+
+    /**
+     * Провереям весь массив boxArray на предмет наличия коробок легче 300 грамм
+     * Реализация через forEach. Самый быстрый из проверенных вариантов (на выборке 30000 объектов)
+     */
+    public void process() {
+        final ArrayList<Box> lightBoxArray = new ArrayList<>(boxArray.size());
+        heavyBoxArray.clear();
+        boxArray.forEach(box -> {
+            if (box.getWeight() > 300) {
+                // помещаем найденный обънек в другой список
+                heavyBoxArray.add(box);
+            } else {
+                lightBoxArray.add(box);
+            }
+        });
+        boxArray.clear();
+        boxArray.addAll(lightBoxArray);
+        lightBoxArray.clear();
     }
 }

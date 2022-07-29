@@ -1,35 +1,50 @@
 package lesson3.arrayListExample;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Основной класс обработки
  */
 public class Processor {
-
     final private ArrayList<Box>  boxArray = new ArrayList<>();
     final private ArrayList<Box> heavyBoxArray = new ArrayList<>();
+    final private ArrayList<Box> lightBoxArray = new ArrayList<>();
 
     /**
-     * Добавляем коробку в начальную очередь
+     * Добавляем коробку во входную очередь
      * @param box - Объект типа Box
      */
     public void addBox(Box box) {
         boxArray.add(box);
     }
 
-
-    public ArrayList<Box> getBoxArray() {
-        return boxArray;
-    }
-
     public ArrayList<Box> getHeavyBoxArray() {
         return heavyBoxArray;
     }
+    public ArrayList<Box> getLightBoxArray() {
+        return lightBoxArray;
+    }
+
+
+    /**
+     * Провереям весь массив boxArray на предмет наличия коробок легче 300 грамм
+     * Реализация через forEach. Самый быстрый из проверенных вариантов (на выборке 30000 объектов)
+     */
+    public void process() {
+        heavyBoxArray.clear();
+        boxArray.forEach(box -> {
+            if (box.getWeight() > 300) {
+                // помещаем найденный объект в соответсвующий список
+                heavyBoxArray.add(box);
+            } else {
+                lightBoxArray.add(box);
+            }
+        });
+        boxArray.clear(); // очищаем входную очередь
+    }
 
     /*
-     * Провереям весь массив boxArray на предмет наличия коробок легче 300 грамм
+     * Провереям весь массив boxArray на предмет наличия коробок легче 300 грамм (первый вариант)
     public void process() {
 
         /*
@@ -53,24 +68,4 @@ public class Processor {
         }
     }
    */
-
-    /**
-     * Провереям весь массив boxArray на предмет наличия коробок легче 300 грамм
-     * Реализация через forEach. Самый быстрый из проверенных вариантов (на выборке 30000 объектов)
-     */
-    public void process() {
-        final ArrayList<Box> lightBoxArray = new ArrayList<>(boxArray.size());
-        heavyBoxArray.clear();
-        boxArray.forEach(box -> {
-            if (box.getWeight() > 300) {
-                // помещаем найденный обънек в другой список
-                heavyBoxArray.add(box);
-            } else {
-                lightBoxArray.add(box);
-            }
-        });
-        boxArray.clear();
-        boxArray.addAll(lightBoxArray);
-        lightBoxArray.clear();
-    }
 }

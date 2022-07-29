@@ -1,6 +1,5 @@
 package lesson3.arrayListExample;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -24,11 +23,10 @@ public class Main {
         // Обрабатываем очередь
         pr.process();
 
-        ArrayList<Box> boxArray = pr.getBoxArray();
         System.out.println("Список коробок до 300 грамм (включительно)");
-        boxArray.forEach(box -> System.out.println("Box - Вес: "+box.getWeight()+" длина:"+box.getLength()+" ширина:" + box.getWidth() + " глубина: " + box.getHeight()));
+        pr.getLightBoxArray().forEach(box -> System.out.println("Box - Вес: "+box.getWeight()+" длина:"+box.getLength()+" ширина:" + box.getWidth() + " глубина: " + box.getHeight()));
+
         System.out.println("Список коробок c весом более 300 грамм");
-        boxArray = pr.getHeavyBoxArray();
-        boxArray.forEach(box -> System.out.println("Box - Вес: "+box.getWeight()+" длина:"+box.getLength()+" ширина:" + box.getWidth() + " глубина: " + box.getHeight()));
+        pr.getHeavyBoxArray().forEach(box -> System.out.println("Box - Вес: "+box.getWeight()+" длина:"+box.getLength()+" ширина:" + box.getWidth() + " глубина: " + box.getHeight()));
     }
 }

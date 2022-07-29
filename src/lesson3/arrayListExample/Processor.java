@@ -1,6 +1,7 @@
 package lesson3.arrayListExample;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.stream.Collectors;
 
 /**
@@ -28,7 +29,7 @@ public class Processor {
 
     /**
      * Провереям весь массив boxArray на предмет наличия коробок легче 300 грамм
-     * Реализованно через Stream API, самый короткий по записи, но не проверял скорость на большой выборке
+     * Реализованно через Stream API, самый короткий по записи, но как оказалось и самый медленный (см.  ProcessorTest)
      */
     public void process() {
         lightBoxArray.addAll(boxArray.stream().filter(x->x.getWeight()<=300).collect(Collectors.toList()));
@@ -36,11 +37,11 @@ public class Processor {
         boxArray.clear(); // очищаем входную очередь
     }
 
-    /*
+    /**
      * Провереям весь массив boxArray на предмет наличия коробок легче 300 грамм
-     * Реализация через forEach. Самый быстрый из проверенных вариантов (на выборке 30000 объектов)
-     *
-    public void process() {
+     * Реализация через forEach. Test only! (см. ProcessorTest)
+     */
+    public void processForEach() {
         boxArray.forEach(box -> {
             if (box.getWeight() > 300) {
                 // помещаем найденный объект в соответсвующий список
@@ -53,29 +54,48 @@ public class Processor {
     }
 
 
-    /*
+    /**
      * Провереям весь массив boxArray на предмет наличия коробок легче 300 грамм (первый вариант)
-    public void process() {
+     * Test only! (см. ProcessorTest)
+     */
+     public void processIterator() {
 
         /*
-        Используются итераторы, т.к. for и forEach (но можно испольховать вариант
-        List<String> names = ....
-            for (i=names.size()-1;i>=0;i--) {
-            // Do something
-             names.remove(i);
-        }
+        Используются итераторы так как первоначальная идея была в удалении объектов из входной очереди сразу
+        Потом принято решение использовать три ArrayList (что приводит к большим расходам пямяти, но быстрее)
+        Test only! (см. ProcessorTest)
+
         https://stackoverflow.com/questions/223918/iterating-through-a-collection-avoiding-concurrentmodificationexception-when-re
         https://stackoverflow.com/questions/1196586/calling-remove-in-foreach-loop-in-java
-
+        */
         for (Iterator<Box> iterator = boxArray.iterator(); iterator.hasNext();) {
             Box box = iterator.next();
             if (box.getWeight() > 300) {
-                // помещаем найденный обънек в другой список
+                // помещаем найденный объект в список тяжелых коробок
                 heavyBoxArray.add(box);
                 // Remove the current element from the iterator and the boxArray.
-                iterator.remove();
+                //iterator.remove();
+            } else {
+                // помещаем найденный объект в список легких коробок
+                lightBoxArray.add(box);
             }
         }
+        boxArray.clear(); // очищаем входную очередь
     }
-   */
+
+    public void processSimple() {
+        for (int i=boxArray.size()-1;i>=0;i--) {
+            if (boxArray.get(i).getWeight() > 300) {
+                // помещаем найденный объект в список тяжелых коробок
+                heavyBoxArray.add(boxArray.get(i));
+                // Remove the current element from the iterator and the boxArray.
+                //iterator.remove();
+            } else {
+                // помещаем найденный объект в список легких коробок
+                lightBoxArray.add(boxArray.get(i));
+            }
+        }
+        boxArray.clear(); // очищаем входную очередь
+    }
+
 }
